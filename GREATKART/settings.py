@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'greatkar',
+    'accounts',
+    'store',
 ]
 
 MIDDLEWARE = [
@@ -62,12 +64,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'greatkar.context_processors.menu_links',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'GREATKART.wsgi.application'
+
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
@@ -115,7 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    'GREATKART/static',
+]
 
 
 # Email
@@ -126,3 +136,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+

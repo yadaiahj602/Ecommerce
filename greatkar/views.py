@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login,logout
-
+from store.models import Product
 # Create your views here.
 def login(request):
   if request.method == "POST":
@@ -24,6 +24,12 @@ def login(request):
   return render(request,'login.html')
     
 def index(request):
-  return render(request,'index.html')   
+  products = Product.objects.filter(is_available=True)
+  context = {
+    'products':products,
+  }
+  return render(request,'index.html',context) 
+
+
     
     
