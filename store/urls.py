@@ -19,6 +19,7 @@ from .import views
 
 urlpatterns = [
     path('',views.store,name="store"),
-    path('<slug:catergory_slug>/',views.store,name="products_by_catergory"),
-    path('<slug:catergory_slug>/<slug:product_slug>/',views.product_detail,name="product_detail"),
+    path('catergory/<slug:catergory_slug>/',views.store,name="products_by_catergory"),
+    path('catergory/<slug:catergory_slug>/<slug:product_slug>/',views.product_detail,name="product_detail"),
+    path('search/',views.search,name="search"),
 ]

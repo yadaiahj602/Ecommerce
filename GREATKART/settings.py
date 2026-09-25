@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'greatkar',
     'accounts',
     'store',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'greatkar.context_processors.menu_links',
+                'cart.content_processors.counter',
             ],
         },
     },
